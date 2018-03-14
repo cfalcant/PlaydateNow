@@ -8,6 +8,7 @@ const knex = require('./db/knex');
 
 const index = require('./routes/indexRoutes');
 const users = require('./routes/usersRoutes');
+const playdates = require('./routes/playdatesRoutes');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', index);
 app.use('/api/users', users);
+app.use('/api/playdates', playdates)
 
 app.listen(port, function() {
   console.log("listening on port: ", port);
