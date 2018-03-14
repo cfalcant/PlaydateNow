@@ -6,7 +6,7 @@ const knex = require('../db/knex');
 router.get('/', function(req, res, next) {
   knex('users')
     .select()
-    .orderBy('id')
+    .orderBy('id', 'asc')
     .then(users => res.json(users))
   })
 

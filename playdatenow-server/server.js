@@ -20,7 +20,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/api/users', users);
 
 app.listen(port, function() {
   console.log("listening on port: ", port);
