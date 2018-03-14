@@ -10,4 +10,8 @@ router.get('/', function(req, res, next) {
     .then(playdates => res.json(playdates));
 });
 
+// router.get('/', function(req, res){
+
+// })
+
 module.exports = router;
