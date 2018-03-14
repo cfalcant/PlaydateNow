@@ -1,16 +1,21 @@
 import React, {Component} from 'react'
 import MyPlaydates from './MyPlaydates'
 import AllPlaydates from './AllPlaydates'
+import { connect } from 'react-redux'
 
-class Playdates extends Component {
-    render () {
+const Playdates = props => {
+    // console.log('mstp in playdates', props.playdates)
         return (
             <div>
-            <MyPlaydates />
-            <AllPlaydates />
+            <MyPlaydates playdates={props.playdates}/>
+            <AllPlaydates playdates={props.playdates} />
           </div>
         )
-    }
+    
 } 
 
-export default Playdates
+const mapStateToProps = state => ({
+    playdates: state.playdates
+})
+
+export default connect(mapStateToProps, null)(Playdates)
