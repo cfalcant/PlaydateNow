@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {updateUser} from '../redux/actions/users'
 import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, CardText, Button} from 'reactstrap';
-import UpdateAcctInfoForm from './UpdateAcctInfoForm'
+// import UpdateAcctInfoForm from './UpdateAcctInfoForm'
 
 class UserDashboard extends Component {
     state = {
