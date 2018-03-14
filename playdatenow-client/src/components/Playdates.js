@@ -1,11 +1,16 @@
 import React, {Component} from 'react'
+import MyPlaydates from './MyPlaydates'
+import AllPlaydates from './AllPlaydates'
 
-const Playdates = () => {
-    return (
-        <div>
-            Stateless Playdates page/component
-        </div>
-    )
-}
+class Playdates extends Component {
+    render () {
+        return (
+            <div>
+            <MyPlaydates />
+            <AllPlaydates />
+          </div>
+        )
+    }
+} 
 
 export default Playdates
