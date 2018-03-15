@@ -10,17 +10,17 @@ router.get('/', function(req, res, next) {
     .then(users => res.json(users))
   })
 
-// router.get('/users/:id/playdates', function (req, res){
-//   knex('playdates', 'user_playdates')
-//   .select(*)
-//   where()
-// })
-
 router.get('/:id/playdates', function (req, res){
-  // knex('user_playdates')
-  // .select('user_playdates.user_id', 'user_playdates.playdate_id', 'playdates.place', 'playdates.date', 'playdates.activity', 'playdates.notes')
-  // .join('playdates')
-  // .where('user_playdates.playdate_id')
+  knex("users")
+    .join("user_playdates", "users.id", "=", "user_playdates.user_id")
+    .join("playdates", "playdates.id", "=", "user_playdates.playdate_id")
+    .select("playdates.place", "playdates.address", "playdates.date", "playdates.activity", "playdates.notes")
+    .where("users.id", req.params.id)
+    .then(playdates => {
+      // console.log(playdates);
+      res.json(playdates);
+    });
+
 })
 
 router.get('/:id', function (req, res){
