@@ -18,9 +18,9 @@ class AddPlaydateForm extends Component {
 
     render () {
         return <div>
-            <button onClick={this.toggleAddNewPlaydate}>
-              Add New Playdate
-            </button>
+            <Button color="primary" onClick={this.toggleAddNewPlaydate}>
+              Ready? Add A New Playdate!
+            </Button>
             {this.state.showAddNewPlaydateForm ? <Container>
                 <Row>
                   <Col>

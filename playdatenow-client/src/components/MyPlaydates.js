@@ -13,6 +13,7 @@ const MyPlaydates = ({playdates}) => {
               <th>Date(s)</th>
               <th>Activity</th>
               <th>Notes</th>
+              <th>Delete/Remove?</th>
             </tr>
           </thead>
           {/* {mappedPlaydates} */}

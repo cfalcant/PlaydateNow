@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {updateUser} from '../redux/actions/users'
-import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, CardText, Button} from 'reactstrap';
+import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, CardText, Button, Jumbotron} from 'reactstrap';
 // import UpdateAcctInfoForm from './UpdateAcctInfoForm'
 
 class UserDashboard extends Component {
@@ -30,8 +30,17 @@ class UserDashboard extends Component {
     }
 
     render () {
-        return <Container className="text-center" className="border-warning mb-3">
-            <Row>
+        return (
+        <div>
+        <Jumbotron>
+        <h1>Welcome to PlaydateNOW!</h1>
+        <h5>Making it easy to find and make new friends!</h5>
+        <hr/>
+        <p>Use our app to find playdates and other family-friendly events near you! Created by parents for children of all ages (yes, that includes pets!). Still have questions? Click Below</p>
+          <Button outline color="primary">Learn More</Button>
+        </Jumbotron>
+        <Container className="text-center" className="border-warning mb-3">
+            {/* <Row> */}
               <Col>
                 <Card>
                   <CardTitle className="text-primary">
@@ -53,36 +62,39 @@ class UserDashboard extends Component {
                   </Button>
                 </Card>
               </Col>
-              <Col>
-                {this.state.showUpdateInfoForm ? <Row>
-                    <Col>
-                      <Form onSubmit={this.submitForm}>
-                        <FormGroup>
-                          <Label>First Name</Label>
-                          <Input onChange={e => this.setState({
-                                firstname: e.target.value
-                              })} type="text" id="firstNameInput" />
-                          <Label>Last Name</Label>
-                          <Input onChange={e => this.setState({
-                                lastname: e.target.value
-                              })} type="text" id="lastNameInput" />
-                          <Label>E-Mail</Label>
-                          <Input onChange={e => this.setState({
-                                email: e.target.value
-                              })} type="text" id="emailInput" placeholder="New Email Address" />
-                          <Label>Password</Label>
-                          <Input onChange={e => this.setState({
-                                password: e.target.value
-                              })} type="text" id="passwordInput" placeholder="New Password" />
-                        </FormGroup>
-                      </Form>
-                      <Button color="primary" type="submit">Save changes</Button>
-                    </Col>
-                  </Row> : null}
-              </Col>
-            </Row>
-          </Container>;
-    }
+              {/* <Col> */}
+              {this.state.showUpdateInfoForm ? <Row>
+                  <Col>
+                    <Form onSubmit={this.submitForm}>
+                      <FormGroup>
+                        <Label>E-Mail</Label>
+                        <Input onChange={e => this.setState({
+                              email: e.target.value
+                            })} type="text" id="emailInput" placeholder="New Email Address" />
+                        <Label>Password</Label>
+                        <Input onChange={e => this.setState({
+                              password: e.target.value
+                            })} type="text" id="passwordInput" placeholder="New Password" />
+                      </FormGroup>
+                    </Form>
+                    <Row>
+                      <Col>
+                        <Button color="success" type="submit">
+                          Save changes
+                        </Button>
+                        <Button color="danger" type="">
+                          Delete account
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row> : null}
+              {/* </Col> */}
+            {/* </Row> */}
+          </Container>
+          </div>
+    )
+   }
 }
 
 function mapDispatchToProps(dispatch) {
