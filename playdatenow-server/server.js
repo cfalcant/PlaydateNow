@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', index);
 app.use('/api/users', users);
 app.use('/api/playdates', playdates)
+// app.use('/api/playdates/:id/')
 
 app.listen(port, function() {
   console.log("listening on port: ", port);
