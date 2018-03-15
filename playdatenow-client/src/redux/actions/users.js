@@ -4,6 +4,8 @@ export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
 export const FETCH_USERS_FAILED = "FETCH_USERS_FAILED";
 export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
+export const FETCH_USER_PLAYDATES_SUCCESS = "FETCH_USER_PLAYDATES_SUCCESS";
+export const FETCH_USER_PLAYDATES_FAIL = "FETCH_USER_PLAYDATES_FAIL";
 
 const BASE_URL = `http://localhost:8000/api`
 
@@ -22,6 +24,24 @@ export const fetchUsers = () => {
             })
         }
     }
+}
+
+export const fetchUserPlaydates = (id) => {
+  // console.log('fetchUserPlaydates', fetchUserPlaydates)
+  return async dispatch => {
+    try {
+      let allUserPlaydates = await axios.get(`${BASE_URL}/users/${id}/playdates`);
+        dispatch({
+          type: FETCH_USER_PLAYDATES_SUCCESS,
+          payload: allUserPlaydates
+        })
+    } catch (error) {
+        dispatch({
+          type: FETCH_USER_PLAYDATES_FAIL,
+          payload: error
+        })
+    }
+  }
 }
 
 

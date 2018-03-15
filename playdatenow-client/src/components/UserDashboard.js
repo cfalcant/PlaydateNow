@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {updateUser} from '../redux/actions/users'
+import {updateUser} from '../redux/actions/users';
 import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, CardText, Button, Jumbotron} from 'reactstrap';
 // import UpdateAcctInfoForm from './UpdateAcctInfoForm'
 
@@ -11,7 +11,7 @@ class UserDashboard extends Component {
         id: 1,
         firstname: 'Carlos',
         lastname: 'Alcantar',
-        email: 'carlos@aol.com',
+        email: 'carlos@a.com',
         password: 'carlos'
     }
 
@@ -97,10 +97,14 @@ class UserDashboard extends Component {
    }
 }
 
+const mapStateToProps = state => ({
+  users: state.users
+})
+
 function mapDispatchToProps(dispatch) {
   return {
     updateUser: bindActionCreators(updateUser, dispatch)
   };
 }
 
-export default connect(null, mapDispatchToProps)(UserDashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(UserDashboard)
