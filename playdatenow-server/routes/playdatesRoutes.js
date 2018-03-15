@@ -6,12 +6,39 @@ const knex = require("../db/knex");
 router.get('/', function(req, res, next) {
   knex('playdates')
     .select()
-    .orderBy("id", "asc")
+    .orderBy('id', 'asc')
     .then(playdates => res.json(playdates));
 });
 
-// router.get('/', function(req, res){
+router.get('/:id', function(req, res) {
+  knex('playdates')
+    .select()
+    .where('id', req.params.id)
+    .then(playdate => res.json(playdate));
+});
 
-// })
+router.post('/', function(req, res) {
+  knex('playdates')
+    .insert(req.body, "*")
+    .then(newPlaydate => res.json(newPlaydate));
+});
+
+router.patch('/edit/:id', function(req, res) {
+  knex('playdates')
+    .update(req.body[0])
+    .where('id', req.params.id)
+    .returning("*")
+    .then(updatedPlaydate => {
+      res.json(updatedPlaydate);
+    });
+});
+
+router.delete('/delete/:id', function(req, res) {
+  knex('playdates')
+    .del()
+    .where('id', req.params.id)
+    .then(removedPlaydate => removedPlaydate)
+  res.send("done!");
+});
 
 module.exports = router;

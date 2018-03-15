@@ -23,7 +23,6 @@ router.get('/:id/playdates', function (req, res){
   // .where('user_playdates.playdate_id')
 })
 
-//WORKS
 router.get('/:id', function (req, res){
   knex('users')
   .select()
@@ -31,30 +30,28 @@ router.get('/:id', function (req, res){
   .then(user => res.json(user))
 })
 
-// WILL NOT USE UNLESS A NEW USER CAN BE CREATED WITH LOGIN PAGE
-// router.post('/', function(req, res) {
-//   knex('users')
-//     .insert(req.body, "*")
-//     .then(newUser => res.json(newUser))
-// })
-
-//WORKS, I THINK..
-router.patch('/edit/:id', function(req, res) {
+router.post('/', function(req, res) {
   knex('users')
-    .update(req.body)
-    .where('id', req.params.id)
-    .returning("*")
-    .then(updatedUser => res.json(updatedUser))
-    res.sendStatus(200)
+    .insert(req.body, "*")
+    .then(newUser => res.json(newUser))
 })
 
-//WORKS, KINDA?(SAYS "OK IN PM")
+router.patch('/edit/:id', function(req, res) {
+  knex('users')
+    .update(req.body[0])
+    .where('id', req.params.id)
+    .returning("*")
+    .then(updatedUser => {
+      res.json(updatedUser)
+    })
+})
+
 router.delete('/delete/:id', function(req, res) {
   knex('users')
     .del()
     .where('id', req.params.id)
     .then(removedUser => removedUser)
-    res.sendStatus(200)
+    res.send('done!')
 })
 
 
