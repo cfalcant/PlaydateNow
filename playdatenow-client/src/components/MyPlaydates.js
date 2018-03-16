@@ -36,7 +36,7 @@ console.log('pds in STATIC PLAYDATES', playdates)
                   <td>4/1/2018</td>
                   <td>Zoo day with the kiddos!</td>
                   <td>My kids (ages: 1, 3, & 5) and I will be heading to the zoo for the entire day on my day off. Others are encouraged to join us!</td>
-                  <td>LINK WILL GO HERE</td>
+                  <td><a href="https://www.google.com">JOIN!</a></td>
                 </tr>
               </tbody>
             </Table>

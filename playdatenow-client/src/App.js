@@ -9,19 +9,18 @@ import Logout from "././components/Logout";
 
 class App extends Component {
   render() {
-    return (
-      <Router>
+    return <Router>
         <div className="App">
+          {/* <Logout exact path="/logout" component={Logout} /> */}
           <TopNav />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/playdates" component={Playdates} />
             <Route path="/users/:id/playdates" component={MyPlaydates} />
-            <Route path="/logout" component={Logout}/>
+            <Route path="/logout" component={Logout} />
           </Switch>
         </div>
-      </Router>
-     ) 
+      </Router>; 
   }
 }
 
