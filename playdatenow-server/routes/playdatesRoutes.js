@@ -33,7 +33,7 @@ router.patch('/edit/:id', function(req, res) {
     });
 });
 
-router.delete('/delete/:id', function(req, res) {
+router.get('/delete/:id', function(req, res) {
   knex('playdates')
     .del()
     .where('id', req.params.id)

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import {bindActionCreators} from 'redux'
+import { addPlaydate } from "../redux/actions/playdates";
 import {Button, Row, Col, Form, FormGroup, Label, Input, Container} from 'reactstrap'
 
 class AddPlaydateForm extends Component {
@@ -7,13 +10,23 @@ class AddPlaydateForm extends Component {
         place: '',
         address: '',
         date: '',
-        acivity: '',
-        notes: '',
-        playdate_creator: ''
+        activity: '',
+        notes: ''
     }
 
     toggleAddNewPlaydate = () => {
        this.setState({showAddNewPlaydateForm: !this.state.showAddNewPlaydateForm});
+    }
+
+    handleSubmit = (e) => {
+      // console.log('Hi!')
+      this.props.addPlaydate({
+            place: this.state.place,
+            address: this.state.address,
+            date: this.state.date,
+            activity: this.state.activity,
+            notes: this.state.notes
+    });
     }
 
     render () {
@@ -24,32 +37,37 @@ class AddPlaydateForm extends Component {
             {this.state.showAddNewPlaydateForm ? <Container>
                 <Row>
                   <Col>
-                    <Form>
+                    <Form onSubmit={this.handleSubmit}>
+                      <br />
                       <FormGroup>
                         <Label>Place</Label>
                         <Input onChange={e => this.setState({
                               place: e.target.value
                             })} type="text" id="firstNameInput" />
+                        <br />
                         <Label>Address</Label>
                         <Input onChange={e => this.setState({
                               address: e.target.value
                             })} type="text" id="lastNameInput" />
+                        <br />
                         <Label>Date</Label>
                         <Input onChange={e => this.setState({
                               date: e.target.value
                             })} type="text" id="emailInput" />
+                        <br />
                         <Label>Activity</Label>
                         <Input onChange={e => this.setState({
                               activity: e.target.value
                             })} type="text" id="passwordInput" />
+                        <br />
                         <Label>Notes</Label>
                         <Input onChange={e => this.setState({
                               notes: e.target.value
                             })} type="text" id="passwordInput" />
                       </FormGroup>
                     </Form>
-                    <Button color="primary" type="submit">
-                      Save changes
+                    <Button onClick={this.handleSubmit} color="primary" type="submit">
+                      SUBMIT
                     </Button>
                   </Col>
                 </Row>
@@ -59,4 +77,14 @@ class AddPlaydateForm extends Component {
 
 }
 
-export default AddPlaydateForm
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      addPlaydate
+    },
+    dispatch
+  );
+
+export default connect(null, mapDispatchToProps)(AddPlaydateForm);
+// export default AddPlaydateForm

@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const FETCH_PLAYDATES_SUCCESS = 'FETCH_PLAYDATES_SUCCESS';
 export const FETCH_PLAYDATES_FAIL = 'FAIL_PLAYDATES_FAIL';
+export const ADD_PLAYDATE_SUCCESS = 'ADD_PLAYDATE_SUCCESS';
+export const ADD_PLAYDATE_FAIL = 'ADD_PLAYDATE_FAIL';
 
 const BASE_URL = 'http://localhost:8000/api'
 
@@ -21,3 +23,28 @@ export const fetchPlaydates = () => {
         }
     }
 }
+
+export const addPlaydate = newPlaydate => {
+    return async dispatch => {
+        try {
+      let response = await fetch(`${BASE_URL}/playdates`, {
+        method: 'post',
+        body: JSON.stringify(newPlaydate),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      let playdates = await response.json()
+      dispatch({
+        type: ADD_PLAYDATE_SUCCESS,
+        payload: playdates
+      })
+    } catch (error) {
+      dispatch({
+        type: ADD_PLAYDATE_FAIL,
+        payload: error
+      })
+    }
+    }
+    }
+

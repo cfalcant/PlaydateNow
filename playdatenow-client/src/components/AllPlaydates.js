@@ -1,9 +1,14 @@
 import React from 'react'
 import { Table } from 'reactstrap'
 import { Link} from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const AllPlaydates = ({playdates}) => {
-    // console.log('playdates', playdates)
+    console.log('pds in MYPLAYDATES', playdates)
+
+// handleClick = (e) => {
+//   console.log('X CLICKED')
+// }
     
 let mappedPlaydates = playdates.map(playdate => {
     return <tr key={playdate.id}>
@@ -12,16 +17,13 @@ let mappedPlaydates = playdates.map(playdate => {
           <td>{playdate.date}</td>
           <td>{playdate.activity}</td>
           <td>{playdate.notes}</td>
-          <td>{playdate.playdate_creator}</td>
-          <td>
-            {/* <Link href="/playdate/:id" /> */}
-          </td>
+          <td>X</td>
         </tr>
       ;
 })
 
     return <div>
-        <h5>All Playdates</h5>
+        <h5>My Playdates</h5>
         <Table hover>
           <thead>
             <tr>
@@ -31,8 +33,7 @@ let mappedPlaydates = playdates.map(playdate => {
               <th>Date(s)</th>
               <th>Activity</th>
               <th>Notes</th>
-              <th>Playdate Creator</th>
-              <th>Join playdate?</th>
+              <th>Remove/delete playdate?</th>
             </tr>
           </thead>
           <tbody>{mappedPlaydates}</tbody>
@@ -40,4 +41,11 @@ let mappedPlaydates = playdates.map(playdate => {
       </div>;
 }
 
-export default AllPlaydates
+const mapStateToProps = state => {
+  console.log('mtsp in all playdates', state.users)
+  playdates: state.playdates
+}
+
+export default connect(mapStateToProps, null)(AllPlaydates)
+
+// export default AllPlaydates

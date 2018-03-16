@@ -8,6 +8,7 @@ export default class Home extends Component {
         return (
             <div> 
                 <UserDashboard/>
+                <hr/>
                 <AddPlaydateForm/>
             </div>
         )
