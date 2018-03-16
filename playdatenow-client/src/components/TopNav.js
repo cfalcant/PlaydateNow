@@ -20,7 +20,7 @@ export default class TopNav extends Component {
               <NavLink href="">FAQs</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink disabled href="">
+              <NavLink href="/logout">
                 LogOut
               </NavLink>
             </NavItem>

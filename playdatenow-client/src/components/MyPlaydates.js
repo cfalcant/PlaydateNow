@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table } from 'reactstrap'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 const MyPlaydates = ({playdates}) => {
 console.log('pds in STATIC PLAYDATES', playdates)
@@ -16,7 +16,7 @@ console.log('pds in STATIC PLAYDATES', playdates)
 // });
 
         return <div>
-            <h5>Static Playdates</h5>
+            <h5>Open playdates</h5>
             <Table hover>
               <thead>
                 <tr>

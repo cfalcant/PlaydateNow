@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {updateUser} from '../redux/actions/users';
-import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, CardText, Button, Jumbotron} from 'reactstrap';
+import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, CardText, Button, Jumbotron, Alert} from 'reactstrap';
 // import UpdateAcctInfoForm from './UpdateAcctInfoForm'
 
 class UserDashboard extends Component {
@@ -30,17 +30,23 @@ class UserDashboard extends Component {
     }
 
     render () {
-        return (
-        <div>
-        <Jumbotron>
-        <h1>Welcome to PlaydateNOW!</h1>
-        <h5>Making it easy to find and make new friends!</h5>
-        <hr/>
-        <p>Use our app to find playdates and other family-friendly events near you! Created by parents for children of all ages (yes, that includes pets!). Still have questions? Click Below</p>
-          <Button outline color="primary">Learn More</Button>
-        </Jumbotron>
-        <Container className="text-center" className="border-warning mb-3">
-            {/* <Row> */}
+        return <div>
+            <Jumbotron>
+              <h1>Welcome to PlaydateNOW!</h1>
+              <h5>Making it easy to find and make new friends!</h5>
+              <hr />
+              <p>
+                Use our app to find playdates and other family-friendly
+                events near you! Created by parents for children of all
+                ages (yes, that includes pets!). Still have questions?
+                Click Below
+              </p>
+              <Button outline color="primary">
+                Learn More
+              </Button>
+            </Jumbotron>
+            <Container className="text-center" className="border-warning mb-3">
+              {/* <Row> */}
               <Col>
                 <Card>
                   <CardTitle className="text-primary">
@@ -90,10 +96,9 @@ class UserDashboard extends Component {
                   </Col>
                 </Row> : null}
               {/* </Col> */}
-            {/* </Row> */}
-          </Container>
-          </div>
-    )
+              {/* </Row> */}
+            </Container>
+          </div>;
    }
 }
 

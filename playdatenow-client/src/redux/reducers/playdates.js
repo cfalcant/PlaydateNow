@@ -1,4 +1,4 @@
-import { FETCH_PLAYDATES_SUCCESS, FETCH_PLAYDATES_FAIL,ADD_PLAYDATE_SUCCESS, ADD_PLAYDATE_FAIL } from "../actions/playdates";
+import { FETCH_PLAYDATES_SUCCESS, FETCH_PLAYDATES_FAIL,ADD_PLAYDATE_SUCCESS, ADD_PLAYDATE_FAIL, DELETE_PLAYDATE_SUCCESS, DELETE_PLAYDATE_FAIL } from "../actions/playdates";
 
 let initialState = [];
 
@@ -11,7 +11,11 @@ export default (state = initialState, action) => {
     case ADD_PLAYDATE_SUCCESS:
       return [...state,action.payload.data];
     case ADD_PLAYDATE_FAIL:
-      return action.payload      
+      return action.payload;
+    case DELETE_PLAYDATE_SUCCESS:
+      return [...state, action.payload.data];
+    case DELETE_PLAYDATE_FAIL:
+      return action.payload;     
     default:
       return state;
   }
