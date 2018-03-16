@@ -5,8 +5,8 @@ export default class TopNav extends Component {
   render() {
     return (
       <div>
-        <p>PlaydateNOW!</p>
-        <Navbar>
+        <h1 className="text-primary">PlaydateNOW!</h1>
+        <Navbar className='bg-dark' color="primary">
         <Nav>
           <NavItem>
             <NavLink href="/">Home</NavLink>

@@ -6,15 +6,13 @@ const MyPlaydates = ({playdates}) => {
 console.log('playdates', playdates)
 
 let myMappedPlaydates = playdates.map(playdate => {
-  return (
-    <tr key={playdate.id}>
+  return <tr key={playdate.id}>
       <td>{playdate.place}</td>
       <td>{playdate.date}</td>
       <td>{playdate.activity}</td>
       <td>{playdate.notes}</td>
       <td>LINK WILL GO HERE</td>
     </tr>
-  );
 });
 
         return <div>
