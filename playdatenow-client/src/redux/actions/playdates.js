@@ -27,8 +27,8 @@ export const fetchPlaydates = () => {
 }
 
 export const addPlaydate = newPlaydate => {
-    return async dispatch => {
-        try {
+  return async dispatch => {
+    try {
       let response = await fetch(`${BASE_URL}/playdates`, {
         method: 'post',
         body: JSON.stringify(newPlaydate),
@@ -47,19 +47,15 @@ export const addPlaydate = newPlaydate => {
         payload: error
       })
     }
-    }
-    }
+  }
+}
 
-    export const deletePlaydate = (deletedPlaydate, id) => {
-    return async dispatch => {
-        try {
-      let response = await fetch(`${BASE_URL}/playdates/delete/${id}`, {
-        method: 'delete',
-        body: JSON.stringify(deletedPlaydate),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+export const deletePlaydate = id => {
+  console.log('hi');
+  
+  return async dispatch => {
+    try {
+      let response = await fetch(`${BASE_URL}/playdates/delete/${id}`)
       let updatedPlaydates = await response.json()
       dispatch({
         type: DELETE_PLAYDATE_SUCCESS,
@@ -71,6 +67,6 @@ export const addPlaydate = newPlaydate => {
         payload: error
       })
     }
-    }
-    }
+  }
+}
 

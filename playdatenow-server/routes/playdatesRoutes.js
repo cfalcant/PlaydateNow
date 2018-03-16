@@ -36,9 +36,14 @@ router.patch('/edit/:id', function(req, res) {
 router.get('/delete/:id', function(req, res) {
   knex('playdates')
     .del()
-    .where(':id', req.params.id)
-    .then(removedPlaydate => removedPlaydate)
-  res.send("done!");
+    .where('id', req.params.id)
+    .returning('*')
+    .then(() => {
+      knex("playdates").then(playdates =>
+        res.json(playdates)
+      );
+    })
+    .catch(err => res.json(err))
 });
 
 module.exports = router;

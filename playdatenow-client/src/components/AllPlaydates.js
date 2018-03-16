@@ -1,9 +1,12 @@
 import React from 'react'
-import { Table } from 'reactstrap'
+import { Table, Button } from 'reactstrap'
 import { connect } from 'react-redux'
+import { bindActionCreators} from 'redux'
+import { deletePlaydate} from '../redux/actions/playdates'
 
-const AllPlaydates = ({playdates}) => {
+const AllPlaydates = ({playdates, deletePlaydate}) => {
   console.log("pds in MYPLAYDATES", playdates);
+
 
   let mappedPlaydates = playdates.map(playdate => {
     return (
@@ -13,7 +16,7 @@ const AllPlaydates = ({playdates}) => {
         <td>{playdate.date}</td>
         <td>{playdate.activity}</td>
         <td>{playdate.notes}</td>
-        <td>X</td>
+        <td><Button onClick={() => deletePlaydate(playdate.id)}>X</Button></td>
       </tr>
     );
   });
@@ -39,10 +42,17 @@ const AllPlaydates = ({playdates}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  playdates: state.playdates
-})
+const mapStateToProps = state => {
+  console.log('state in ap', state)
+  return ({
+    playdates: state.playdates
+  })
+}
 
-export default connect(mapStateToProps, null)(AllPlaydates)
+const mapDispatchToProps = dispatch => bindActionCreators({
+  deletePlaydate
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllPlaydates)
 
 // export default AllPlaydates

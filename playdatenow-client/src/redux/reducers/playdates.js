@@ -6,14 +6,15 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PLAYDATES_SUCCESS:
       return [...state, ...action.payload.data];
+
     case FETCH_PLAYDATES_FAIL:
       return action.payload;
     case ADD_PLAYDATE_SUCCESS:
-      return [...state,action.payload.data];
+      return [...state, ...action.payload];
     case ADD_PLAYDATE_FAIL:
       return action.payload;
     case DELETE_PLAYDATE_SUCCESS:
-      return [...state, action.payload.data];
+      return [...action.payload];
     case DELETE_PLAYDATE_FAIL:
       return action.payload;     
     default:

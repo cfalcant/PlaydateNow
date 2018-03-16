@@ -19,8 +19,8 @@ let newStore = store();
 newStore.dispatch(fetchUsers());
 newStore.dispatch(fetchPlaydates());
 newStore.dispatch(fetchUserPlaydates(1));
-newStore.dispatch(addPlaydate());
-newStore.dispatch(deletePlaydate());
+// newStore.dispatch(addPlaydate());
+// newStore.dispatch(deletePlaydate());
 
 
 ReactDOM.render(
