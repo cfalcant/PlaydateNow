@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {updateUser} from '../redux/actions/users';
-import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, CardText, Button, Jumbotron, Alert} from 'reactstrap';
+import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, Button, Jumbotron} from 'reactstrap';
 // import UpdateAcctInfoForm from './UpdateAcctInfoForm'
 
 class UserDashboard extends Component {
@@ -36,20 +36,22 @@ class UserDashboard extends Component {
         <h5>Making it easy to find and make new friends!</h5>
         <hr />
         <p>
-          Use our app to find playdates and other family-friendly
+          Use our platform to find playdates and other family-friendly
           events near you! Created by parents for children of all
-          ages (yes, that includes pets!). Still have questions?
+          ages. Have questions?
           Click Below
         </p>
-        <Button outline color="primary">Learn More</Button>
+        <Button outline color="info">Learn More</Button>
       </Jumbotron>
-      <Container className="text-center" className="border-warning mb-3">
+      <Container className="text-center" 
+      // className="border-warning mb-3"
+      >
         <Col>
           <Card>
-            <CardTitle className="text-primary">
-            <div>
-              <h4>Your Information</h4>
-            </div>
+            <CardTitle className="text-info">
+              <div>
+                <h4>Your Information</h4>
+              </div>
             </CardTitle>
             <CardSubtitle>
               Name: {this.state.firstname} {this.state.lastname}
@@ -62,15 +64,9 @@ class UserDashboard extends Component {
               <br />
               <br />
             </CardSubtitle>
-            {/* <CardText>
-              <br />
-              Email: <span>{this.state.email}</span>
-              <br />
-              Password: <span>{this.state.password}</span>
-            </CardText> */}
-          <Button onClick={this.toggleUpdateInfoForm} color="warning">
-            Click here to edit your information
-          </Button>
+            <Button onClick={this.toggleUpdateInfoForm} color="warning">
+              Click here to edit your information
+            </Button>
           </Card>
         </Col>
           

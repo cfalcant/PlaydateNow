@@ -9,10 +9,8 @@ import { Provider } from 'react-redux';
 import {fetchUsers} from './redux/actions/users'
 import { fetchUserPlaydates } from "./redux/actions/users";
 import {fetchPlaydates} from './redux/actions/playdates'
-import {addPlaydate} from './redux/actions/playdates'
-import { deletePlaydate } from "./redux/actions/playdates";
-
-
+// import {addPlaydate} from './redux/actions/playdates'
+// import { deletePlaydate } from "./redux/actions/playdates";
 
 let newStore = store();
 
@@ -21,7 +19,6 @@ newStore.dispatch(fetchPlaydates());
 newStore.dispatch(fetchUserPlaydates(1));
 // newStore.dispatch(addPlaydate());
 // newStore.dispatch(deletePlaydate());
-
 
 ReactDOM.render(
   <Provider store={newStore}>

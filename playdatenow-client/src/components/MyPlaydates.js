@@ -15,32 +15,31 @@ console.log('pds in STATIC PLAYDATES', playdates)
 //     </tr>
 // });
 
-        return <div>
-            <h5>Open playdates</h5>
-            <Table hover>
-              <thead>
-                <tr>
-                  {/* <th>#</th> */}
-                  <th>Place</th>
-                  <th>Address</th>
-                  <th>Date(s)</th>
-                  <th>Activity</th>
-                  <th>Notes</th>
-                  <th>Join?</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Zoo</td>
-                  <td>14500 W. Northern Ave., Glendale, AZ 85045</td>
-                  <td>4/1/2018</td>
-                  <td>Zoo day with the kiddos!</td>
-                  <td>My kids (ages: 1, 3, & 5) and I will be heading to the zoo for the entire day on my day off. Others are encouraged to join us!</td>
-                  <td><a href="https://www.google.com">JOIN!</a></td>
-                </tr>
-              </tbody>
-            </Table>
-          </div>;
+return <div>
+  <h5>Open playdates</h5>
+  <Table hover>
+    <thead>
+      <tr>
+        <th>Place</th>
+        <th>Address</th>
+        <th>Date(s)</th>
+        <th>Activity</th>
+        <th>Notes</th>
+        <th>Join?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Zoo</td>
+        <td>14500 W. Northern Ave., Glendale, AZ 85045</td>
+        <td>4/1/2018</td>
+        <td>Zoo day with the kiddos!</td>
+        <td>My kids (ages: 1, 3, & 5) and I will be heading to the zoo for the entire day on my day off. Others are encouraged to join us!</td>
+        <td><a href="https://www.google.com">JOIN!</a></td>
+      </tr>
+    </tbody>
+  </Table>
+</div>;
 }
 
 // const mapStateToProps = state => ({

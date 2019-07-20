@@ -4,7 +4,7 @@ html {
 
 .App {
   text-align: center;
-  padding: 10px;
+  padding: 15px 40px 15px 40px;
 }
 
 .App-logo {
@@ -25,6 +25,10 @@ html {
 
 .App-intro {
   font-size: large;
+}
+
+.text-primary {
+  color: blue;
 }
 
 @keyframes App-logo-spin {
