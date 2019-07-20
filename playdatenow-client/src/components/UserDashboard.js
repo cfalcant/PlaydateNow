@@ -53,13 +53,21 @@ class UserDashboard extends Component {
             </CardTitle>
             <CardSubtitle>
               Name: {this.state.firstname} {this.state.lastname}
+              <br />
+              <br />
+              Email: {this.state.email}
+              <br />
+              <br />
+              Password: {this.state.password} 
+              <br />
+              <br />
             </CardSubtitle>
-            <CardText>
+            {/* <CardText>
               <br />
               Email: <span>{this.state.email}</span>
               <br />
               Password: <span>{this.state.password}</span>
-            </CardText>
+            </CardText> */}
           <Button onClick={this.toggleUpdateInfoForm} color="warning">
             Click here to edit your information
           </Button>

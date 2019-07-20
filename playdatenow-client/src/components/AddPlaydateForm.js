@@ -71,7 +71,8 @@ class AddPlaydateForm extends Component {
                     </Button>
                   </Col>
                 </Row>
-              </Container> : null}
+              </Container> : 
+            null}
           </div>;
     }
 
