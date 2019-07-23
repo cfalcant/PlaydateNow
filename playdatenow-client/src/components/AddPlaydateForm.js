@@ -67,11 +67,11 @@ class AddPlaydateForm extends Component {
                 </FormGroup>
               </Form>
 
-              <Button onClick={this.handleSubmit} color="primary" type="submit">
+              <Button onClick={this.handleSubmit} color="info" type="submit">
                 SUBMIT
               </Button>
 
-              </Col>
+            </Col>
           </Row>
       </Container> 
       : null}

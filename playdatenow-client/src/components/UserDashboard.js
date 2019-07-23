@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {updateUser} from '../redux/actions/users';
 import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, Button, Jumbotron} from 'reactstrap';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import FaqsPage from './Faqs'
 // import UpdateAcctInfoForm from './UpdateAcctInfoForm'
 
 class UserDashboard extends Component {
@@ -19,6 +21,11 @@ class UserDashboard extends Component {
     this.setState({showUpdateInfoForm: !this.state.showUpdateInfoForm});
   }
 
+  learnMoreClicked = () => {
+    // console.log('Learn more clicked')
+
+  }
+
   submitForm = (e) => {
     e.preventDefault()
     this.props.updateUser({
@@ -30,7 +37,9 @@ class UserDashboard extends Component {
   }
 
   render () {
-    return <div>
+    return (
+    <Router>  
+    <div>
       <Jumbotron>
         <h1>Welcome to PlaydateNOW!</h1>
         <h5>Making it easy to find and make new friends!</h5>
@@ -41,7 +50,9 @@ class UserDashboard extends Component {
           ages. Have questions?
           Click Below
         </p>
-        <Button outline color="info">Learn More</Button>
+        {/* <Link to='/faqs' render={FaqsPage}>  */}
+        <Button outline color="info" onClick={this.learnMoreClicked}>Learn More</Button>
+        {/* </Link> */}
       </Jumbotron>
       <Container className="text-center" 
       // className="border-warning mb-3"
@@ -106,7 +117,9 @@ class UserDashboard extends Component {
         </Row> : null
         }
       </Container>
-    </div>;
+    </div>
+    </Router>
+    )
   }
 }
 
