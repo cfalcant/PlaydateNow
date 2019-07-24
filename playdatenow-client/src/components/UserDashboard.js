@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {updateUser} from '../redux/actions/users';
 import { Container, Row, Col, Form, FormGroup, Input, Label, Card, CardTitle, CardSubtitle, Button, Jumbotron} from 'reactstrap';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Route, Link, Redirect} from "react-router-dom";
 import FaqsPage from './Faqs'
 // import UpdateAcctInfoForm from './UpdateAcctInfoForm'
 
@@ -21,24 +21,24 @@ class UserDashboard extends Component {
     this.setState({showUpdateInfoForm: !this.state.showUpdateInfoForm});
   }
 
-  learnMoreClicked = () => {
-    // console.log('Learn more clicked')
+  // submitForm = (e) => {
+  //   e.preventDefault()
+  //   this.props.updateUser({
+  //     firstname: this.state.firstname,
+  //     lastname: this.state.lastname,
+  //     email: this.state.email,
+  //     password: this.state.user.password
+  //   });
+  // }
+submitForm = (e) => {
+  e.preventDefault();
+  console.log('submit form works', this.state)
+  this.setState({showUpdateInfoForm: false})
 
-  }
-
-  submitForm = (e) => {
-    e.preventDefault()
-    this.props.updateUser({
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      email: this.state.email,
-      password: this.state.user.password
-    });
-  }
+}
 
   render () {
     return (
-    <Router>  
     <div>
       <Jumbotron>
         <h1>Welcome to PlaydateNOW!</h1>
@@ -50,13 +50,13 @@ class UserDashboard extends Component {
           ages. Have questions?
           Click Below
         </p>
-        {/* <Link to='/faqs' render={FaqsPage}>  */}
-        <Button outline color="info" onClick={this.learnMoreClicked}>Learn More</Button>
-        {/* </Link> */}
+        <br/>
+
+        <Link to='/faqs' render={FaqsPage}>
+        <Button outline color="info" >Learn More</Button>
+        </Link>
       </Jumbotron>
-      <Container className="text-center" 
-      // className="border-warning mb-3"
-      >
+      <Container className="text-center">
         <Col>
           <Card>
             <CardTitle className="text-info">
@@ -66,16 +66,13 @@ class UserDashboard extends Component {
             </CardTitle>
             <CardSubtitle>
               Name: {this.state.firstname} {this.state.lastname}
-              <br />
-              <br />
+              <br /> <br />
               Email: {this.state.email}
-              <br />
-              <br />
+              <br /> <br />
               Password: {this.state.password} 
-              <br />
-              <br />
+              <br /> <br />
             </CardSubtitle>
-            <Button onClick={this.toggleUpdateInfoForm} color="warning">
+            <Button onClick={this.toggleUpdateInfoForm} color="warning" className='text-info'>
               Click here to edit your information
             </Button>
           </Card>
@@ -103,7 +100,6 @@ class UserDashboard extends Component {
             id="passwordInput" 
             placeholder="New Password" />
             </FormGroup>
-          </Form>
             <Row>
               <Col>
               <Button color="success" type="submit">Save changes</Button>
@@ -112,13 +108,13 @@ class UserDashboard extends Component {
               <Button color="danger" type="">Delete account</Button>
               </Col>
             </Row>
+          </Form>
         </Col>
 
         </Row> : null
         }
       </Container>
     </div>
-    </Router>
     )
   }
 }

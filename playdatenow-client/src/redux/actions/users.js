@@ -10,20 +10,20 @@ export const FETCH_USER_PLAYDATES_FAIL = "FETCH_USER_PLAYDATES_FAIL";
 const BASE_URL = `http://localhost:8000/api`
 
 export const fetchUsers = () => {
-    return async dispatch => {
-        try {
-            let allUsers = await axios.get(`${BASE_URL}/users`)
-                dispatch({
-                    type: FETCH_USERS_SUCCESS,
-                    payload: allUsers
-                })
-        } catch (error) {
-            dispatch({
-                type:FETCH_USERS_FAILED,
-                payload: error 
-            })
-        }
+  return async dispatch => {
+    try {
+      let allUsers = await axios.get(`${BASE_URL}/users`)
+      dispatch({
+        type: FETCH_USERS_SUCCESS,
+        payload: allUsers
+      })
+    } catch (error) {
+      dispatch({
+        type:FETCH_USERS_FAILED,
+        payload: error 
+      })
     }
+  }
 }
 
 export const fetchUserPlaydates = (id) => {
@@ -31,19 +31,18 @@ export const fetchUserPlaydates = (id) => {
   return async dispatch => {
     try {
       let allUserPlaydates = await axios.get(`${BASE_URL}/users/${id}/playdates`);
-        dispatch({
-          type: FETCH_USER_PLAYDATES_SUCCESS,
-          payload: allUserPlaydates
-        })
+      dispatch({
+        type: FETCH_USER_PLAYDATES_SUCCESS,
+        payload: allUserPlaydates
+      })
     } catch (error) {
-        dispatch({
-          type: FETCH_USER_PLAYDATES_FAIL,
-          payload: error
-        })
+      dispatch({
+        type: FETCH_USER_PLAYDATES_FAIL,
+        payload: error
+      })
     }
   }
 }
-
 
 //NICK G EXAMPLE IN G PONG
 export const updateUser = (updateInfo, userID) => {
